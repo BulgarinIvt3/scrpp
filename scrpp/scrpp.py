@@ -523,7 +523,7 @@ url = 'https://auto.ru/cars/all/?page='
 cars = []
 count = 1
 
-while count <= 1:
+while count <= 99:
     url = url + str(count)
     response = get(url)
     html_soup = BeautifulSoup(response.text, 'html.parser')
