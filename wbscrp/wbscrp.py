@@ -522,8 +522,14 @@ class Find_Cars:
 url = 'https://auto.ru/cars/all/?page='
 cars = []
 count = 1
-
-while count <= 99:
+page = input('Enter the number of pages: ')
+try:
+    page = int(page)
+except:
+    raise TypeError('Enter the number from 1 to 99')
+if page not in range(1, 99):
+    raise ValueError('Enter the number from 1 to 99')
+while count <= page:
     url = url + str(count)
     response = get(url)
     html_soup = BeautifulSoup(response.text, 'html.parser')
